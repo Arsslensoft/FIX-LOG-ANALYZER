@@ -19,6 +19,9 @@ namespace TachyonFix.Core
         public List<Entry> Entries { get; set; } = new List<Entry>();
         public BrokerStatisticsCalculator Stats { get; set; }
         public InsightCalculator Insights { get; set; }
+        public DateTimeOffset? Start => Entries?.FirstOrDefault()?.DateTime;
+        public DateTimeOffset? End => Entries?.LastOrDefault()?.DateTime;
+        public TimeSpan? RecordedTime => End - Start;
         public IEnumerable<Message> AllMessages => Entries.Select(x => x.Message ?? x.Error.ParsedMessage);
 
     }

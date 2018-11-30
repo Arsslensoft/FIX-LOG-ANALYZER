@@ -1,6 +1,6 @@
 using DevComponents.DotNetBar.Controls;
 
-namespace VisualStudio2012Style
+namespace TachyonFix
 {
     partial class MainForm
     {
@@ -31,9 +31,9 @@ namespace VisualStudio2012Style
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dotNetBarManager1 = new DevComponents.DotNetBar.DotNetBarManager(this.components);
             this.dockSite4 = new DevComponents.DotNetBar.DockSite();
@@ -55,6 +55,10 @@ namespace VisualStudio2012Style
             this.dockContainerItem5 = new DevComponents.DotNetBar.DockContainerItem();
             this.dockSite9 = new DevComponents.DotNetBar.DockSite();
             this.bar5 = new DevComponents.DotNetBar.Bar();
+            this.panelDockContainer11 = new DevComponents.DotNetBar.PanelDockContainer();
+            this.globalStats1 = new TachyonFix.Controls.GlobalStats();
+            this.panelDockContainer4 = new DevComponents.DotNetBar.PanelDockContainer();
+            this.startPage1 = new TachyonFix.Controls.StartPage();
             this.panelDockContainer3 = new DevComponents.DotNetBar.PanelDockContainer();
             this.messagesList = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.messageTypeImageList = new System.Windows.Forms.ImageList(this.components);
@@ -62,14 +66,11 @@ namespace VisualStudio2012Style
             this.recordperpage = new DevComponents.DotNetBar.Controls.Slider();
             this.page = new DevComponents.DotNetBar.Controls.Slider();
             this.panelDockContainer6 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.generalStats1 = new VisualStudio2012Style.Controls.GeneralStats();
+            this.generalStats1 = new TachyonFix.Controls.GeneralStats();
             this.panelDockContainer10 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.scenario1 = new VisualStudio2012Style.Controls.Scenario();
+            this.scenario1 = new TachyonFix.Controls.Scenario();
             this.panelDockContainer9 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.insights1 = new VisualStudio2012Style.Controls.Insights();
-            this.panelDockContainer11 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.panelDockContainer4 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.startPage1 = new VisualStudio2012Style.Controls.StartPage();
+            this.insights1 = new TachyonFix.Controls.Insights();
             this.startpage = new DevComponents.DotNetBar.DockContainerItem();
             this.MessagesSearchTab = new DevComponents.DotNetBar.DockContainerItem();
             this.StatsTab = new DevComponents.DotNetBar.DockContainerItem();
@@ -108,7 +109,6 @@ namespace VisualStudio2012Style
             this.buttonItem26 = new DevComponents.DotNetBar.ButtonItem();
             this.bar3 = new DevComponents.DotNetBar.Bar();
             this.buttonItem13 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
             this.fixversion = new DevComponents.DotNetBar.ComboBoxItem();
             this.fix42 = new DevComponents.Editors.ComboItem();
             this.fix44 = new DevComponents.Editors.ComboItem();
@@ -147,12 +147,13 @@ namespace VisualStudio2012Style
             this.dockSite9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar5)).BeginInit();
             this.bar5.SuspendLayout();
+            this.panelDockContainer11.SuspendLayout();
+            this.panelDockContainer4.SuspendLayout();
             this.panelDockContainer3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelDockContainer6.SuspendLayout();
             this.panelDockContainer10.SuspendLayout();
             this.panelDockContainer9.SuspendLayout();
-            this.panelDockContainer4.SuspendLayout();
             this.dockSite2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar4)).BeginInit();
             this.bar4.SuspendLayout();
@@ -199,11 +200,11 @@ namespace VisualStudio2012Style
             this.dockSite4.Controls.Add(this.bar8);
             this.dockSite4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dockSite4.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar8, 990, 142)))}, DevComponents.DotNetBar.eOrientation.Vertical);
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar8, 990, 234)))}, DevComponents.DotNetBar.eOrientation.Vertical);
             this.dockSite4.ForeColor = System.Drawing.Color.Black;
-            this.dockSite4.Location = new System.Drawing.Point(0, 367);
+            this.dockSite4.Location = new System.Drawing.Point(0, 275);
             this.dockSite4.Name = "dockSite4";
-            this.dockSite4.Size = new System.Drawing.Size(990, 145);
+            this.dockSite4.Size = new System.Drawing.Size(990, 237);
             this.dockSite4.TabIndex = 3;
             this.dockSite4.TabStop = false;
             // 
@@ -227,7 +228,7 @@ namespace VisualStudio2012Style
             this.bar8.Location = new System.Drawing.Point(0, 3);
             this.bar8.Name = "bar8";
             this.bar8.SelectedDockTab = 0;
-            this.bar8.Size = new System.Drawing.Size(990, 142);
+            this.bar8.Size = new System.Drawing.Size(990, 234);
             this.bar8.Stretch = true;
             this.bar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar8.TabIndex = 0;
@@ -241,7 +242,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer7.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer7.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer7.Name = "panelDockContainer7";
-            this.panelDockContainer7.Size = new System.Drawing.Size(984, 91);
+            this.panelDockContainer7.Size = new System.Drawing.Size(984, 183);
             this.panelDockContainer7.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer7.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -252,14 +253,14 @@ namespace VisualStudio2012Style
             // 
             this.dataGridViewX1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OperationCol,
@@ -267,28 +268,28 @@ namespace VisualStudio2012Style
             this.ConditionCol,
             this.ValueCol,
             this.OutputCol});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewX1.EnableHeadersVisualStyles = false;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(157)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewX1.Name = "dataGridViewX1";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewX1.Size = new System.Drawing.Size(984, 91);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewX1.Size = new System.Drawing.Size(984, 183);
             this.dataGridViewX1.TabIndex = 0;
             this.dataGridViewX1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellContentClick);
             this.dataGridViewX1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellValueChanged);
@@ -353,7 +354,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer5.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer5.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer5.Name = "panelDockContainer5";
-            this.panelDockContainer5.Size = new System.Drawing.Size(984, 91);
+            this.panelDockContainer5.Size = new System.Drawing.Size(984, 183);
             this.panelDockContainer5.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -378,7 +379,7 @@ namespace VisualStudio2012Style
             this.messagesListView.FullRowSelect = true;
             this.messagesListView.Location = new System.Drawing.Point(0, 0);
             this.messagesListView.Name = "messagesListView";
-            this.messagesListView.Size = new System.Drawing.Size(984, 91);
+            this.messagesListView.Size = new System.Drawing.Size(984, 183);
             this.messagesListView.SmallImageList = this.imageList;
             this.messagesListView.TabIndex = 3;
             this.messagesListView.UseCompatibleStateImageBehavior = false;
@@ -426,11 +427,11 @@ namespace VisualStudio2012Style
             this.dockSite9.Controls.Add(this.bar5);
             this.dockSite9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockSite9.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar5, 794, 312)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar5, 794, 222)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
             this.dockSite9.ForeColor = System.Drawing.Color.Black;
             this.dockSite9.Location = new System.Drawing.Point(0, 53);
             this.dockSite9.Name = "dockSite9";
-            this.dockSite9.Size = new System.Drawing.Size(794, 314);
+            this.dockSite9.Size = new System.Drawing.Size(794, 222);
             this.dockSite9.TabIndex = 9;
             this.dockSite9.TabStop = false;
             // 
@@ -448,12 +449,12 @@ namespace VisualStudio2012Style
             this.bar5.CanDockTop = false;
             this.bar5.CanHide = true;
             this.bar5.CanUndock = false;
-            this.bar5.Controls.Add(this.panelDockContainer3);
+            this.bar5.Controls.Add(this.panelDockContainer11);
             this.bar5.Controls.Add(this.panelDockContainer4);
+            this.bar5.Controls.Add(this.panelDockContainer3);
             this.bar5.Controls.Add(this.panelDockContainer6);
             this.bar5.Controls.Add(this.panelDockContainer10);
             this.bar5.Controls.Add(this.panelDockContainer9);
-            this.bar5.Controls.Add(this.panelDockContainer11);
             this.bar5.DockTabAlignment = DevComponents.DotNetBar.eTabStripAlignment.Top;
             this.bar5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bar5.ForeColor = System.Drawing.Color.Black;
@@ -468,13 +469,60 @@ namespace VisualStudio2012Style
             this.bar5.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
             this.bar5.Location = new System.Drawing.Point(0, 0);
             this.bar5.Name = "bar5";
-            this.bar5.SelectedDockTab = 1;
-            this.bar5.Size = new System.Drawing.Size(794, 312);
+            this.bar5.SelectedDockTab = 5;
+            this.bar5.Size = new System.Drawing.Size(794, 222);
             this.bar5.Stretch = true;
             this.bar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar5.TabIndex = 0;
             this.bar5.TabNavigation = true;
             this.bar5.TabStop = false;
+            // 
+            // panelDockContainer11
+            // 
+            this.panelDockContainer11.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelDockContainer11.Controls.Add(this.globalStats1);
+            this.panelDockContainer11.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelDockContainer11.Location = new System.Drawing.Point(3, 28);
+            this.panelDockContainer11.Name = "panelDockContainer11";
+            this.panelDockContainer11.Size = new System.Drawing.Size(788, 191);
+            this.panelDockContainer11.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelDockContainer11.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelDockContainer11.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.panelDockContainer11.Style.GradientAngle = 90;
+            this.panelDockContainer11.TabIndex = 30;
+            // 
+            // globalStats1
+            // 
+            this.globalStats1.BackColor = System.Drawing.Color.Transparent;
+            this.globalStats1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.globalStats1.Location = new System.Drawing.Point(0, 0);
+            this.globalStats1.Name = "globalStats1";
+            this.globalStats1.Size = new System.Drawing.Size(788, 191);
+            this.globalStats1.TabIndex = 0;
+            // 
+            // panelDockContainer4
+            // 
+            this.panelDockContainer4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelDockContainer4.Controls.Add(this.startPage1);
+            this.panelDockContainer4.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelDockContainer4.Location = new System.Drawing.Point(3, 28);
+            this.panelDockContainer4.Name = "panelDockContainer4";
+            this.panelDockContainer4.Size = new System.Drawing.Size(788, 191);
+            this.panelDockContainer4.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelDockContainer4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelDockContainer4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.panelDockContainer4.Style.GradientAngle = 90;
+            this.panelDockContainer4.TabIndex = 2;
+            // 
+            // startPage1
+            // 
+            this.startPage1.BackColor = System.Drawing.Color.Transparent;
+            this.startPage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startPage1.ForeColor = System.Drawing.Color.Black;
+            this.startPage1.Location = new System.Drawing.Point(0, 0);
+            this.startPage1.Name = "startPage1";
+            this.startPage1.Size = new System.Drawing.Size(788, 191);
+            this.startPage1.TabIndex = 0;
             // 
             // panelDockContainer3
             // 
@@ -484,7 +532,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer3.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer3.Location = new System.Drawing.Point(3, 28);
             this.panelDockContainer3.Name = "panelDockContainer3";
-            this.panelDockContainer3.Size = new System.Drawing.Size(788, 281);
+            this.panelDockContainer3.Size = new System.Drawing.Size(788, 191);
             this.panelDockContainer3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -506,7 +554,7 @@ namespace VisualStudio2012Style
             this.messagesList.GridLines = true;
             this.messagesList.Location = new System.Drawing.Point(0, 24);
             this.messagesList.Name = "messagesList";
-            this.messagesList.Size = new System.Drawing.Size(788, 257);
+            this.messagesList.Size = new System.Drawing.Size(788, 167);
             this.messagesList.SmallImageList = this.messageTypeImageList;
             this.messagesList.TabIndex = 4;
             this.messagesList.UseCompatibleStateImageBehavior = false;
@@ -527,6 +575,7 @@ namespace VisualStudio2012Style
             this.panel1.Controls.Add(this.recordperpage);
             this.panel1.Controls.Add(this.page);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 24);
@@ -539,6 +588,7 @@ namespace VisualStudio2012Style
             // 
             this.recordperpage.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.recordperpage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordperpage.ForeColor = System.Drawing.Color.Black;
             this.recordperpage.LabelWidth = 180;
             this.recordperpage.Location = new System.Drawing.Point(0, 0);
             this.recordperpage.Minimum = 1;
@@ -556,6 +606,7 @@ namespace VisualStudio2012Style
             // 
             this.page.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.page.Dock = System.Windows.Forms.DockStyle.Right;
+            this.page.ForeColor = System.Drawing.Color.Black;
             this.page.LabelWidth = 100;
             this.page.Location = new System.Drawing.Point(461, 0);
             this.page.Maximum = 1;
@@ -574,7 +625,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer6.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer6.Location = new System.Drawing.Point(3, 28);
             this.panelDockContainer6.Name = "panelDockContainer6";
-            this.panelDockContainer6.Size = new System.Drawing.Size(788, 281);
+            this.panelDockContainer6.Size = new System.Drawing.Size(788, 191);
             this.panelDockContainer6.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer6.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -588,7 +639,7 @@ namespace VisualStudio2012Style
             this.generalStats1.ForeColor = System.Drawing.Color.Black;
             this.generalStats1.Location = new System.Drawing.Point(0, 0);
             this.generalStats1.Name = "generalStats1";
-            this.generalStats1.Size = new System.Drawing.Size(788, 281);
+            this.generalStats1.Size = new System.Drawing.Size(788, 191);
             this.generalStats1.TabIndex = 0;
             // 
             // panelDockContainer10
@@ -598,7 +649,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer10.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer10.Location = new System.Drawing.Point(3, 28);
             this.panelDockContainer10.Name = "panelDockContainer10";
-            this.panelDockContainer10.Size = new System.Drawing.Size(788, 281);
+            this.panelDockContainer10.Size = new System.Drawing.Size(788, 191);
             this.panelDockContainer10.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer10.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer10.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -612,7 +663,7 @@ namespace VisualStudio2012Style
             this.scenario1.ForeColor = System.Drawing.Color.Black;
             this.scenario1.Location = new System.Drawing.Point(0, 0);
             this.scenario1.Name = "scenario1";
-            this.scenario1.Size = new System.Drawing.Size(788, 281);
+            this.scenario1.Size = new System.Drawing.Size(788, 191);
             this.scenario1.TabIndex = 0;
             // 
             // panelDockContainer9
@@ -622,7 +673,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer9.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer9.Location = new System.Drawing.Point(3, 28);
             this.panelDockContainer9.Name = "panelDockContainer9";
-            this.panelDockContainer9.Size = new System.Drawing.Size(788, 281);
+            this.panelDockContainer9.Size = new System.Drawing.Size(788, 191);
             this.panelDockContainer9.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer9.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer9.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -636,45 +687,8 @@ namespace VisualStudio2012Style
             this.insights1.ForeColor = System.Drawing.Color.Black;
             this.insights1.Location = new System.Drawing.Point(0, 0);
             this.insights1.Name = "insights1";
-            this.insights1.Size = new System.Drawing.Size(788, 281);
+            this.insights1.Size = new System.Drawing.Size(788, 191);
             this.insights1.TabIndex = 0;
-            // 
-            // panelDockContainer11
-            // 
-            this.panelDockContainer11.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelDockContainer11.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelDockContainer11.Location = new System.Drawing.Point(3, 28);
-            this.panelDockContainer11.Name = "panelDockContainer11";
-            this.panelDockContainer11.Size = new System.Drawing.Size(788, 281);
-            this.panelDockContainer11.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelDockContainer11.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelDockContainer11.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.panelDockContainer11.Style.GradientAngle = 90;
-            this.panelDockContainer11.TabIndex = 30;
-            // 
-            // panelDockContainer4
-            // 
-            this.panelDockContainer4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelDockContainer4.Controls.Add(this.startPage1);
-            this.panelDockContainer4.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelDockContainer4.Location = new System.Drawing.Point(3, 28);
-            this.panelDockContainer4.Name = "panelDockContainer4";
-            this.panelDockContainer4.Size = new System.Drawing.Size(788, 281);
-            this.panelDockContainer4.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelDockContainer4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelDockContainer4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.panelDockContainer4.Style.GradientAngle = 90;
-            this.panelDockContainer4.TabIndex = 2;
-            // 
-            // startPage1
-            // 
-            this.startPage1.BackColor = System.Drawing.Color.Transparent;
-            this.startPage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startPage1.ForeColor = System.Drawing.Color.Black;
-            this.startPage1.Location = new System.Drawing.Point(0, 0);
-            this.startPage1.Name = "startPage1";
-            this.startPage1.Size = new System.Drawing.Size(788, 281);
-            this.startPage1.TabIndex = 0;
             // 
             // startpage
             // 
@@ -726,7 +740,7 @@ namespace VisualStudio2012Style
             this.dockSite1.ForeColor = System.Drawing.Color.Black;
             this.dockSite1.Location = new System.Drawing.Point(0, 53);
             this.dockSite1.Name = "dockSite1";
-            this.dockSite1.Size = new System.Drawing.Size(0, 314);
+            this.dockSite1.Size = new System.Drawing.Size(0, 222);
             this.dockSite1.TabIndex = 0;
             this.dockSite1.TabStop = false;
             // 
@@ -738,12 +752,12 @@ namespace VisualStudio2012Style
             this.dockSite2.Controls.Add(this.bar7);
             this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
             this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar4, 193, 100))),
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar7, 193, 209)))}, DevComponents.DotNetBar.eOrientation.Vertical);
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar4, 193, 71))),
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar7, 193, 148)))}, DevComponents.DotNetBar.eOrientation.Vertical);
             this.dockSite2.ForeColor = System.Drawing.Color.Black;
             this.dockSite2.Location = new System.Drawing.Point(794, 53);
             this.dockSite2.Name = "dockSite2";
-            this.dockSite2.Size = new System.Drawing.Size(196, 314);
+            this.dockSite2.Size = new System.Drawing.Size(196, 222);
             this.dockSite2.TabIndex = 1;
             this.dockSite2.TabStop = false;
             // 
@@ -764,7 +778,7 @@ namespace VisualStudio2012Style
             this.bar4.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
             this.bar4.Location = new System.Drawing.Point(3, 0);
             this.bar4.Name = "bar4";
-            this.bar4.Size = new System.Drawing.Size(193, 100);
+            this.bar4.Size = new System.Drawing.Size(193, 71);
             this.bar4.Stretch = true;
             this.bar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar4.TabIndex = 0;
@@ -778,7 +792,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer1.Name = "panelDockContainer1";
-            this.panelDockContainer1.Size = new System.Drawing.Size(187, 74);
+            this.panelDockContainer1.Size = new System.Drawing.Size(187, 45);
             this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -804,7 +818,7 @@ namespace VisualStudio2012Style
             this.advTree1.NodesConnector = this.nodeConnector1;
             this.advTree1.NodeStyle = this.elementStyle1;
             this.advTree1.PathSeparator = ";";
-            this.advTree1.Size = new System.Drawing.Size(187, 74);
+            this.advTree1.Size = new System.Drawing.Size(187, 45);
             this.advTree1.Styles.Add(this.elementStyle1);
             this.advTree1.TabIndex = 0;
             this.advTree1.Text = "advTree1";
@@ -857,10 +871,10 @@ namespace VisualStudio2012Style
             this.dockContainerItem2,
             this.dockContainerItem4});
             this.bar7.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
-            this.bar7.Location = new System.Drawing.Point(3, 103);
+            this.bar7.Location = new System.Drawing.Point(3, 74);
             this.bar7.Name = "bar7";
             this.bar7.SelectedDockTab = 0;
-            this.bar7.Size = new System.Drawing.Size(193, 209);
+            this.bar7.Size = new System.Drawing.Size(193, 148);
             this.bar7.Stretch = true;
             this.bar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar7.TabIndex = 1;
@@ -874,7 +888,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer2.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer2.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer2.Name = "panelDockContainer2";
-            this.panelDockContainer2.Size = new System.Drawing.Size(187, 158);
+            this.panelDockContainer2.Size = new System.Drawing.Size(187, 97);
             this.panelDockContainer2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -901,7 +915,7 @@ namespace VisualStudio2012Style
             this.messageDetailsList.GridLines = true;
             this.messageDetailsList.Location = new System.Drawing.Point(0, 0);
             this.messageDetailsList.Name = "messageDetailsList";
-            this.messageDetailsList.Size = new System.Drawing.Size(187, 158);
+            this.messageDetailsList.Size = new System.Drawing.Size(187, 97);
             this.messageDetailsList.TabIndex = 5;
             this.messageDetailsList.UseCompatibleStateImageBehavior = false;
             this.messageDetailsList.View = System.Windows.Forms.View.Details;
@@ -930,7 +944,7 @@ namespace VisualStudio2012Style
             this.panelDockContainer8.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer8.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer8.Name = "panelDockContainer8";
-            this.panelDockContainer8.Size = new System.Drawing.Size(187, 158);
+            this.panelDockContainer8.Size = new System.Drawing.Size(187, 97);
             this.panelDockContainer8.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer8.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDockContainer8.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
@@ -953,7 +967,7 @@ namespace VisualStudio2012Style
             this.rawMessage.Multiline = true;
             this.rawMessage.Name = "rawMessage";
             this.rawMessage.PreventEnterBeep = true;
-            this.rawMessage.Size = new System.Drawing.Size(187, 158);
+            this.rawMessage.Size = new System.Drawing.Size(187, 97);
             this.rawMessage.TabIndex = 0;
             // 
             // dockContainerItem2
@@ -1064,6 +1078,7 @@ namespace VisualStudio2012Style
             // 
             this.buttonItem26.Name = "buttonItem26";
             this.buttonItem26.Text = "About";
+            this.buttonItem26.Click += new System.EventHandler(this.buttonItem26_Click);
             // 
             // bar3
             // 
@@ -1078,7 +1093,6 @@ namespace VisualStudio2012Style
             this.bar3.IsMaximized = false;
             this.bar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem13,
-            this.buttonItem14,
             this.fixversion,
             this.querybtn,
             this.excelbtn,
@@ -1086,7 +1100,7 @@ namespace VisualStudio2012Style
             this.bar3.Location = new System.Drawing.Point(0, 25);
             this.bar3.MenuBar = true;
             this.bar3.Name = "bar3";
-            this.bar3.Size = new System.Drawing.Size(197, 28);
+            this.bar3.Size = new System.Drawing.Size(173, 28);
             this.bar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar3.TabIndex = 1;
             this.bar3.TabStop = false;
@@ -1095,16 +1109,10 @@ namespace VisualStudio2012Style
             // 
             // buttonItem13
             // 
-            this.buttonItem13.Image = global::VisualStudio2012Style.Properties.Resources.OpenFileDark;
+            this.buttonItem13.Image = global::TachyonFix.Properties.Resources.OpenFileDark;
             this.buttonItem13.Name = "buttonItem13";
             this.buttonItem13.Text = "buttonItem13";
             this.buttonItem13.Click += new System.EventHandler(this.openbtn_Click);
-            // 
-            // buttonItem14
-            // 
-            this.buttonItem14.Image = global::VisualStudio2012Style.Properties.Resources.SaveButtonDark;
-            this.buttonItem14.Name = "buttonItem14";
-            this.buttonItem14.Text = "buttonItem14";
             // 
             // fixversion
             // 
@@ -1127,15 +1135,15 @@ namespace VisualStudio2012Style
             // 
             // querybtn
             // 
-            this.querybtn.Image = global::VisualStudio2012Style.Properties.Resources.Start;
-            this.querybtn.ImageSmall = global::VisualStudio2012Style.Properties.Resources.Start;
+            this.querybtn.Image = global::TachyonFix.Properties.Resources.Start;
+            this.querybtn.ImageSmall = global::TachyonFix.Properties.Resources.Start;
             this.querybtn.Name = "querybtn";
             this.querybtn.Text = "Query";
             this.querybtn.Click += new System.EventHandler(this.buttonItem6_Click);
             // 
             // excelbtn
             // 
-            this.excelbtn.Image = global::VisualStudio2012Style.Properties.Resources.Excel;
+            this.excelbtn.Image = global::TachyonFix.Properties.Resources.Excel;
             this.excelbtn.ImageFixedSize = new System.Drawing.Size(16, 16);
             this.excelbtn.Name = "excelbtn";
             this.excelbtn.Text = "Export to excel";
@@ -1143,7 +1151,7 @@ namespace VisualStudio2012Style
             // 
             // pdfbtn
             // 
-            this.pdfbtn.Image = global::VisualStudio2012Style.Properties.Resources.PDF;
+            this.pdfbtn.Image = global::TachyonFix.Properties.Resources.PDF;
             this.pdfbtn.ImageFixedSize = new System.Drawing.Size(16, 16);
             this.pdfbtn.Name = "pdfbtn";
             this.pdfbtn.Text = "Export to pdf";
@@ -1277,7 +1285,7 @@ namespace VisualStudio2012Style
             // buttonItem12
             // 
             this.buttonItem12.BeginGroup = true;
-            this.buttonItem12.Image = global::VisualStudio2012Style.Properties.Resources.NewProjectDark;
+            this.buttonItem12.Image = global::TachyonFix.Properties.Resources.NewProjectDark;
             this.buttonItem12.Name = "buttonItem12";
             this.buttonItem12.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem17});
@@ -1335,12 +1343,13 @@ namespace VisualStudio2012Style
             this.dockSite9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar5)).EndInit();
             this.bar5.ResumeLayout(false);
+            this.panelDockContainer11.ResumeLayout(false);
+            this.panelDockContainer4.ResumeLayout(false);
             this.panelDockContainer3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelDockContainer6.ResumeLayout(false);
             this.panelDockContainer10.ResumeLayout(false);
             this.panelDockContainer9.ResumeLayout(false);
-            this.panelDockContainer4.ResumeLayout(false);
             this.dockSite2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar4)).EndInit();
             this.bar4.ResumeLayout(false);
@@ -1382,7 +1391,6 @@ namespace VisualStudio2012Style
         private DevComponents.DotNetBar.DockContainerItem dockContainerItem1;
         private DevComponents.DotNetBar.DockContainerItem dockContainerItem2;
         private DevComponents.DotNetBar.ButtonItem buttonItem13;
-        private DevComponents.DotNetBar.ButtonItem buttonItem14;
         private DevComponents.AdvTree.AdvTree advTree1;
         private DevComponents.AdvTree.Node LogNode;
         private DevComponents.AdvTree.NodeConnector nodeConnector1;
@@ -1463,5 +1471,6 @@ namespace VisualStudio2012Style
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.ComponentModel.BackgroundWorker exportWorker;
         private System.Windows.Forms.Panel panel1;
+        private Controls.GlobalStats globalStats1;
     }
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace VisualStudio2012Style
+namespace TachyonFix
 {
     static class Program
     {

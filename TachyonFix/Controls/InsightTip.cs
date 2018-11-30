@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VisualStudio2012Style.Controls
+namespace TachyonFix.Controls
 {
     public partial class InsightTip : UserControl
     {

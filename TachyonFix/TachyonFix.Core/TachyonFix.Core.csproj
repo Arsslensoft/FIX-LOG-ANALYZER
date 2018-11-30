@@ -89,9 +89,11 @@
     <Compile Include="Stats\ActivityDistribution.cs" />
     <Compile Include="Stats\AdminAppDistribution.cs" />
     <Compile Include="Stats\ARDistribution.cs" />
+    <Compile Include="Stats\GlobalStats.cs" />
     <Compile Include="Stats\BrokerStats.cs" />
     <Compile Include="Stats\ErrorDistribution.cs" />
     <Compile Include="Stats\BrokerStatisticsCalculator.cs" />
+    <Compile Include="Stats\GlobalStatsCalculator.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

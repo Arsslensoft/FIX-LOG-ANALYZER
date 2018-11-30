@@ -8,8 +8,8 @@
     <ProjectGuid>{3A1B5A44-AC58-43E5-A300-31FB4C6B8BC2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VisualStudio2012Style</RootNamespace>
-    <AssemblyName>VisualStudio2012Style</AssemblyName>
+    <RootNamespace>TachyonFix</RootNamespace>
+    <AssemblyName>TachyonFix</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -85,6 +85,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aboutfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aboutfrm.designer.cs">
+      <DependentUpon>Aboutfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GlobalStats.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GlobalStats.Designer.cs">
+      <DependentUpon>GlobalStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GeneralStats.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="Aboutfrm.resx">
+      <DependentUpon>Aboutfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GlobalStats.resx">
+      <DependentUpon>GlobalStats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\GeneralStats.resx">
       <DependentUpon>GeneralStats.cs</DependentUpon>
     </EmbeddedResource>

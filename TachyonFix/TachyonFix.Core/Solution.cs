@@ -18,6 +18,8 @@ namespace TachyonFix.Core
     public class Solution
     {
         public Linker Linker { get; set; }
+        public GlobalStatsCalculator GlobalStatsCalculator { get; set; }
+
         public DateTimeOffset? Start => Entries?.FirstOrDefault()?.DateTime;
         public DateTimeOffset? End => Entries?.LastOrDefault()?.DateTime;
         public TimeSpan? RecordedTime => End - Start;
@@ -78,10 +80,10 @@ namespace TachyonFix.Core
                 
 
 
-                if (!sFM.Contains("| Fix") && sFM.Contains("| DATA"))
+                if (!sFM.Contains("| Fix") )
                 {
-                     dt = DateTimeOffset.Parse(sFM.Substring(sFM.IndexOf(Message.SOH) + 1, sFM.IndexOf('|') - 2));
-                    sol.OtherEntries.Add(new OtherEntry(){Content = sFM, Index = i, RawLogLine = sFM, Kind =  EntryType.Data, DateTime = dt,Direction = sFM.Contains("| IN") ? Direction.IN : Direction.OUT});
+                     
+                    sol.OtherEntries.Add(new OtherEntry(){Content = sFM, Index = i, RawLogLine = sFM, Kind =  EntryType.Data, Direction = sFM.Contains("| IN") ? Direction.IN : Direction.OUT});
                     i++;
                     continue;
 
@@ -404,6 +406,8 @@ namespace TachyonFix.Core
         public Dictionary<string,Broker> Intermediaries = new Dictionary<string, Broker>();
         public void Analyze(BackgroundWorker worker)
         {
+            GlobalStatsCalculator = new GlobalStatsCalculator(this);
+            GlobalStatsCalculator.OnProgressChanged += (d, s) => worker.ReportProgress((int)d, s);
             Linker = new Linker(this);
             Linker.OnProgressChanged += (d, s) => worker.ReportProgress((int)d, s);
             Linker.DetectEvents();
@@ -420,6 +424,8 @@ namespace TachyonFix.Core
                 ic.RecommendInsights();
                 intermediary.Value.Insights = ic;
             }
+            GlobalStatsCalculator.CalculateStats();
+
         }
     }
 }

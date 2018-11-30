@@ -1,4 +1,4 @@
-﻿namespace VisualStudio2012Style.Controls
+﻿namespace TachyonFix.Controls
 {
     partial class StartPage
     {

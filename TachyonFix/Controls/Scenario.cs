@@ -15,7 +15,7 @@ using TachyonFix.Core;
 using TachyonFix.Core.Scenarios;
 using Message = TachyonFix.Message;
 
-namespace VisualStudio2012Style.Controls
+namespace TachyonFix.Controls
 {
     public partial class Scenario : UserControl
     {

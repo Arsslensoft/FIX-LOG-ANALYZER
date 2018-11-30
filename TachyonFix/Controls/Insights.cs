@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TachyonFix.Core;
 
-namespace VisualStudio2012Style.Controls
+namespace TachyonFix.Controls
 {
     public partial class Insights : UserControl
     {

@@ -20,7 +20,7 @@ using TachyonFix.Core.Insights;
 using TachyonFix.Core.Reporting;
 using ColumnHeader = System.Windows.Forms.ColumnHeader;
 
-namespace VisualStudio2012Style
+namespace TachyonFix
 {
     public partial class MainForm : MetroForm
     {
@@ -148,6 +148,7 @@ namespace VisualStudio2012Style
             advTree1.Enabled = false;
             dataFetcher.RunWorkerAsync();
             analysisWorker.RunWorkerAsync();
+        
         }
 
         void LoadBrokers()
@@ -247,7 +248,7 @@ namespace VisualStudio2012Style
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
                 advTree1.Enabled = true;
-
+                globalStats1.BrokerChanged(CurrentSolution);
                 DesktopAlert.Show("Successfully loaded "+CurrentSolution.MessagesCount + " messages", "\uf005", eSymbolSet.Material, Color.Empty, eDesktopAlertColor.Blue, eAlertPosition.BottomRight, 2, 1, AlertClicked);
                 if (CurrentSolution.Intermediaries.Any(x=> x.Value.Insights.Insights.Any()))
                     DesktopAlert.Show("One or more insights has been given for certain brokers (e.g: " + CurrentSolution.Intermediaries.FirstOrDefault(x => x.Value.Insights.Insights.Any()).Value.Name + ") ", "\uf005", eSymbolSet.Material, Color.Empty, eDesktopAlertColor.Red, eAlertPosition.BottomRight, 4, 1, AlertClicked);
@@ -262,7 +263,7 @@ namespace VisualStudio2012Style
         void UpdateColumnsWidth()
         {
             foreach (var messagesListColumn in messagesList.Columns)
-               ( messagesListColumn as ColumnHeader).Width = messagesList.Width / (messagesList.Columns.Count + 1);
+               ( messagesListColumn as ColumnHeader).Width = messagesList.Width / (messagesList.Columns.Count);
         }
         private void dataGridViewX1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -733,6 +734,12 @@ namespace VisualStudio2012Style
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
             }));
+        }
+
+        private void buttonItem26_Click(object sender, EventArgs e)
+        {
+            Aboutfrm f = new Aboutfrm();
+            f.ShowDialog(this);
         }
     }
     

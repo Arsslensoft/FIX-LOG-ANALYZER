@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 
-namespace VisualStudio2012Style.Controls
+namespace TachyonFix.Controls
 {
     public partial class StartPage : UserControl
     {

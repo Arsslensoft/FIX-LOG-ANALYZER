@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
 
-namespace VisualStudio2012Style
+namespace TachyonFix
 {
    public class Utils
     {
