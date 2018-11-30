@@ -25,6 +25,7 @@ namespace TachyonFix.Core
         public int UnknownMessagesCount => OtherEntries.Count;
         public string FileName { get; set; }
 
+      
         public List<Error> LinkingErrors { get; set; } = new List<Error>();
         public IEnumerable<Error> Errors => Entries.Where(e => e.Error != null).Select(x => x.Error).Union(LinkingErrors);
         public List<Entry> Entries { get; set; } = new List<Entry>();

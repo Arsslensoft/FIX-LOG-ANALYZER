@@ -10,12 +10,14 @@ using System.Text;
 using System.Windows.Forms;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
+using DevComponents.DotNetBar.Controls;
 using DevComponents.DotNetBar.Metro;
 using Newtonsoft.Json;
 using QuickFix.DataDictionary;
 using QuickFix.Fields;
 using TachyonFix.Core;
 using TachyonFix.Core.Insights;
+using TachyonFix.Core.Reporting;
 using ColumnHeader = System.Windows.Forms.ColumnHeader;
 
 namespace VisualStudio2012Style
@@ -143,6 +145,7 @@ namespace VisualStudio2012Style
             DisplayErrors();
             SelectedSource = CurrentSolution.Entries;
             LoadBrokers();
+            advTree1.Enabled = false;
             dataFetcher.RunWorkerAsync();
             analysisWorker.RunWorkerAsync();
         }
@@ -199,9 +202,10 @@ namespace VisualStudio2012Style
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
                 MessagesSearchTab.Visible = true;
-                MessageBoxEx.Show("Log Import completed", "Log Import", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+        
                 InitializeSolution();
+                fixversion.SelectedItem = fix42;
+                bar5.SelectedDockContainerItem = MessagesSearchTab;
             }));
         }
 
@@ -242,7 +246,17 @@ namespace VisualStudio2012Style
                 statuslb.Text = "Ready";
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
+                advTree1.Enabled = true;
+
+                DesktopAlert.Show("Successfully loaded "+CurrentSolution.MessagesCount + " messages", "\uf005", eSymbolSet.Material, Color.Empty, eDesktopAlertColor.Blue, eAlertPosition.BottomRight, 2, 1, AlertClicked);
+                if (CurrentSolution.Intermediaries.Any(x=> x.Value.Insights.Insights.Any()))
+                    DesktopAlert.Show("One or more insights has been given for certain brokers (e.g: " + CurrentSolution.Intermediaries.FirstOrDefault(x => x.Value.Insights.Insights.Any()).Value.Name + ") ", "\uf005", eSymbolSet.Material, Color.Empty, eDesktopAlertColor.Red, eAlertPosition.BottomRight, 4, 1, AlertClicked);
+
             }));
+        }
+        private void AlertClicked(long alertId)
+        {
+           
         }
         #region Messages and Grid
         void UpdateColumnsWidth()
@@ -360,7 +374,7 @@ namespace VisualStudio2012Style
 
         List<Entry> GetDefaultSource()
         {
-            if (advTree1.SelectedNode != null)
+            if (advTree1.SelectedNode != null && advTree1.SelectedNode != LogNode)
                     return (advTree1.SelectedNode.Tag as Broker).Entries;
             else return CurrentSolution.Entries;
         }
@@ -392,7 +406,7 @@ namespace VisualStudio2012Style
                 SelectedSource = result;
                 recordperpage.Maximum = result.Count;
                 recordperpage.Minimum = 1;
-                recordperpage.Value = 10;
+                recordperpage.Value = Math.Max(recordperpage.Value,1);
                 int p = result.Count / recordperpage.Value;
                 if (result.Count % recordperpage.Value != 0)
                     p++;
@@ -461,7 +475,7 @@ namespace VisualStudio2012Style
                 progressBarItem1.Visible = true;
                 messagesList.Items.Clear();
                 dataGridViewX1.Enabled = false;
-                buttonItem6.Enabled = false;
+                querybtn.Enabled = false;
            
             }));
            
@@ -487,7 +501,7 @@ namespace VisualStudio2012Style
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
                 dataGridViewX1.Enabled = true;
-                buttonItem6.Enabled = true;
+                querybtn.Enabled = true;
          
             }));
             if (!dataDisplay.IsBusy)
@@ -507,7 +521,7 @@ namespace VisualStudio2012Style
                 progressBarItem1.Visible = true;
                 messagesList.Items.Clear();
                 dataGridViewX1.Enabled = false;
-                buttonItem6.Enabled = false;
+                querybtn.Enabled = false;
               
             }));
             DisplayData();
@@ -521,7 +535,7 @@ namespace VisualStudio2012Style
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
                 dataGridViewX1.Enabled = true;
-                buttonItem6.Enabled = true;
+                querybtn.Enabled = true;
            
             }));
       
@@ -540,8 +554,8 @@ namespace VisualStudio2012Style
 
         private void recordperpage_ValueChanged(object sender, EventArgs e)
         {
-            
-            if(!dataFetcher.IsBusy && !dataDisplay.IsBusy)
+
+            if (!dataDisplay.IsBusy && !dataFetcher.IsBusy)
                 dataDisplay.RunWorkerAsync();
             this.Invoke(new Action(() =>
             {
@@ -650,6 +664,75 @@ namespace VisualStudio2012Style
                 ScenarioTab.Visible = false;
 
             }
+            if (!dataFetcher.IsBusy && !dataDisplay.IsBusy)
+                dataFetcher.RunWorkerAsync();
+        }
+
+        private void dataGridViewX1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void excelbtn_Click(object sender, EventArgs e)
+        {
+            if (exportWorker.IsBusy)
+            {
+                MessageBoxEx.Show("An export operation is on going", "Export", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+            ee = new ExcelExporter();
+            ee.OnProgressChanged += (p, s) => exportWorker.ReportProgress((int)p, s);
+            saveFileDialog1.Filter = $"*.{ee.FileExtensions}|*.{ee.FileExtensions}";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                exportedfile = saveFileDialog1.FileName;
+                exportWorker.RunWorkerAsync();
+            }
+        }
+
+        private void pdfbtn_Click(object sender, EventArgs e)
+        {
+            if (exportWorker.IsBusy)
+            {
+                MessageBoxEx.Show("An export operation is on going", "Export", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+            ee = new PDFExporter();
+            ee.OnProgressChanged += (p, s) => exportWorker.ReportProgress((int)p, s);
+            saveFileDialog1.Filter = $"*.{ee.FileExtensions}|*.{ee.FileExtensions}";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                exportedfile = saveFileDialog1.FileName;
+                exportWorker.RunWorkerAsync();
+            }
+        }
+
+        private Exporter ee;
+        private string exportedfile;
+        private void exportWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+       
+            this.Invoke(new Action(() =>
+            {
+                progressBarItem1.Visible = true;
+            }));
+            exportWorker.ReportProgress(0, "Converting data...");
+
+            var dt = Utils.ListViewToDataTable(messagesList, exportWorker);
+            ee.Export(exportedfile, dt);
+       
+        }
+
+        private void exportWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Invoke(new Action(() =>
+            {
+                statuslb.Text = "Ready";
+                progressBarItem1.Value = 0;
+                progressBarItem1.Visible = false;
+            }));
         }
     }
     
