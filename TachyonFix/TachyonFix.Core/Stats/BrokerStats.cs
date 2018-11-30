@@ -11,6 +11,7 @@ namespace TachyonFix.Core.Stats
         public AdminAppDistribution AdminAppDistribution { get; set; }
         public ErrorDistribution ErrorDistribution { get; set; }
         public ARDistribution AcceptRejectDistribution { get; set; }
+        public List<ActivityDistribution> ActivityDistribution { get; set; }
         public List<KeyValuePair<string, int>> MessageTypeDistribution { get; set; }
         public double MessagesPercentage { get; set; }
         public TimeSpan TotalActiveTime { get; set; }

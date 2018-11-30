@@ -32,17 +32,17 @@ namespace TachyonFix.Core.Stats
                 group p by p.GetType().Name into g
                 select new KeyValuePair<string,int>(g.Key, g.Count())).ToList();
 
-            OnProgressChanged?.Invoke(25, "Calculating Accept/Reject distribution for broker " + Broker.Name + "...");
+            OnProgressChanged?.Invoke(20, "Calculating Accept/Reject distribution for broker " + Broker.Name + "...");
             // AR
             Stats.AcceptRejectDistribution = new ARDistribution()
             {
-                Rejected = Broker.AllMessages.Count(x => x.GetType().Name.Contains("Reject"))
-            };
+                Rejected = Solution.Linker.Events.Where(x => x.Target == Broker).Select(x => x.Message).Count(x =>  x.GetType().Name.Contains("Reject"))
+        };
             Stats.AcceptRejectDistribution.Accepted =
                 mc - Stats.AcceptRejectDistribution.Rejected;
 
 
-            OnProgressChanged?.Invoke(50, "Calculating Admin/App messages distribution for broker " + Broker.Name + "...");
+            OnProgressChanged?.Invoke(40, "Calculating Admin/App messages distribution for broker " + Broker.Name + "...");
             // App/Admin
             Stats.AdminAppDistribution = new AdminAppDistribution()
             {
@@ -54,14 +54,28 @@ namespace TachyonFix.Core.Stats
             // SP
             Stats.MessagesPercentage = (mc / (double) Solution.MessagesCount) * 100;
 
-            OnProgressChanged?.Invoke(75, "Calculating error type distribution for broker " + Broker.Name + "...");
+            OnProgressChanged?.Invoke(60, "Calculating error type distribution for broker " + Broker.Name + "...");
 
             // ED
             Stats.ErrorDistribution = new ErrorDistribution();
-            Stats.ErrorDistribution.Syntax = Solution.Linker.Events.Where(x => x.Target == Broker).Select(x => x.Message).Count(x => x is Reject) + Broker.Errors.Count();
-            Stats.ErrorDistribution.Semantic =
-                Solution.Linker.Events.Where(x => x.Target == Broker).Select(x => x.Message).Count(x => !(x is Reject) && x.GetType().Name.Contains("Reject"));
+            foreach (var reject in Solution.Linker.Events.Where(x => x.Target == Broker).Select(x => x.Message).Where(x => x.GetType().Name.Contains("Reject")))
+            {
+                if (reject is Reject)
+                      Stats.ErrorDistribution.Syntax++;
+                else Stats.ErrorDistribution.Semantic++;
+            }
 
+            OnProgressChanged?.Invoke(80, "Calculating activity distribution for broker " + Broker.Name + "...");
+            // AD
+            var start = Solution.Start.Value;
+            Stats.ActivityDistribution = new List<ActivityDistribution>();
+            for (int i = 0; i < (int)Solution.RecordedTime.Value.TotalMinutes; i++)
+            {
+                var next = start.AddMinutes(i+1);
+                var current = start.AddMinutes(i);
+                Stats.ActivityDistribution.Add(new ActivityDistribution() { Minute = i, Messages = Broker.Entries.Count(e => e.DateTime >= current && e.DateTime <= next) });
+                
+            }
             // TAT
             Stats.TotalActiveTime = Broker.Entries.LastOrDefault().DateTime - Broker.Entries.FirstOrDefault().DateTime;
             OnProgressChanged?.Invoke(100, "Ready");

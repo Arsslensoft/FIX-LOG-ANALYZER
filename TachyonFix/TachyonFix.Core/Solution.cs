@@ -18,8 +18,9 @@ namespace TachyonFix.Core
     public class Solution
     {
         public Linker Linker { get; set; }
-      
-
+        public DateTimeOffset? Start => Entries?.FirstOrDefault()?.DateTime;
+        public DateTimeOffset? End => Entries?.LastOrDefault()?.DateTime;
+        public TimeSpan? RecordedTime => End - Start;
         public int MessagesCount => Entries.Count(e => e.Error == null);
         public int UnknownMessagesCount => OtherEntries.Count;
         public string FileName { get; set; }

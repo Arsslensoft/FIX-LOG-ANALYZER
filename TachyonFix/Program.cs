@@ -6,6 +6,7 @@ namespace VisualStudio2012Style
 {
     static class Program
     {
+        public static MainForm MainInstance { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -14,7 +15,8 @@ namespace VisualStudio2012Style
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            MainInstance = new MainForm();
+            Application.Run(MainInstance);
         }
     }
 }

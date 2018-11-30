@@ -102,6 +102,11 @@ namespace VisualStudio2012Style
 
         void ClearSolution()
         {
+            MessagesSearchTab.Visible = false;
+            generaltab.Visible = false;
+            StatsTab.Visible = false;
+            InsightsTab.Visible = false;
+            ScenarioTab.Visible = false;
             messagesListView.Items.Clear();
             LogNode.Nodes.Clear();
         }
@@ -193,6 +198,7 @@ namespace VisualStudio2012Style
                 statuslb.Text = "Ready";
                 progressBarItem1.Value = 0;
                 progressBarItem1.Visible = false;
+                MessagesSearchTab.Visible = true;
                 MessageBoxEx.Show("Log Import completed", "Log Import", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 InitializeSolution();
@@ -549,13 +555,68 @@ namespace VisualStudio2012Style
         void UpdateColumnsWidthForDetails()
         {
             foreach (var messagesListColumn in messageDetailsList.Columns)
-                (messagesListColumn as ColumnHeader).Width = messageDetailsList.Width / (messageDetailsList.Columns.Count + 1);
+                (messagesListColumn as ColumnHeader).Width = messageDetailsList.Width / (messageDetailsList.Columns.Count);
         }
         private void messageDetailsList_SizeChanged(object sender, EventArgs e)
         {
             UpdateColumnsWidthForDetails();
         }
 
+        public void DisplayMessageInfo(QuickFix.Message message, Entry entry = null)
+        {
+            if (message != null)
+            {
+                messageDetailsList.Items.Clear();
+
+                foreach (var h in message.Header)
+                {
+                    var ddf = _fieldsBoxItems.ContainsKey(h.Key) ? (_fieldsBoxItems[h.Key].Tag as DDField) : null;
+                    var ditem = messageDetailsList.Items.Add(h.Key.ToString());
+                    if (ddf != null)
+                        ditem.SubItems.Add(ddf.Name).ForeColor = Color.FromArgb(255, 22, 160, 133);
+                    else ditem.SubItems.Add(h.Key.ToString()).ForeColor = Color.FromArgb(255, 22, 160, 133);
+                    ditem.SubItems.Add(h.Value.ToString()).ForeColor = Color.FromArgb(255, 22, 160, 133);
+                    if (ddf != null)
+                        ditem.SubItems.Add(ddf.FixFldType).ForeColor = Color.FromArgb(255, 22, 160, 133);
+                    else ditem.SubItems.Add("DEFAULT").ForeColor = Color.FromArgb(255, 22, 160, 133);
+
+                    ditem.ForeColor = Color.FromArgb(255, 22, 160, 133);
+                }
+                foreach (var h in message)
+                {
+                    var ddf = _fieldsBoxItems.ContainsKey(h.Key) ? (_fieldsBoxItems[h.Key].Tag as DDField) : null;
+                    var ditem = messageDetailsList.Items.Add(h.Key.ToString());
+                    if (ddf != null)
+                        ditem.SubItems.Add(ddf.Name).ForeColor = Color.FromArgb(255, 192, 57, 43);
+                    else ditem.SubItems.Add(h.Key.ToString()).ForeColor = Color.FromArgb(255, 192, 57, 43);
+                    ditem.SubItems.Add(h.Value.ToString()).ForeColor = Color.FromArgb(255, 192, 57, 43);
+                    if (ddf != null)
+                        ditem.SubItems.Add(ddf.FixFldType).ForeColor = Color.FromArgb(255, 192, 57, 43);
+                    else ditem.SubItems.Add("DEFAULT").ForeColor = Color.FromArgb(255, 192, 57, 43);
+
+                    ditem.ForeColor = Color.FromArgb(255, 192, 57, 43);
+
+                }
+                foreach (var h in message.Trailer)
+                {
+                    var ddf = _fieldsBoxItems.ContainsKey(h.Key) ? (_fieldsBoxItems[h.Key].Tag as DDField) : null;
+                    var ditem = messageDetailsList.Items.Add(h.Key.ToString());
+                    if (ddf != null)
+                        ditem.SubItems.Add(ddf.Name).ForeColor = Color.FromArgb(255, 25, 42, 86);
+                    else ditem.SubItems.Add(h.Key.ToString()).ForeColor = Color.FromArgb(255, 25, 42, 86);
+                    ditem.SubItems.Add(h.Value.ToString()).ForeColor = Color.FromArgb(255, 25, 42, 86);
+                    if (ddf != null)
+                        ditem.SubItems.Add(ddf.FixFldType).ForeColor = Color.FromArgb(255, 25, 42, 86);
+                    else ditem.SubItems.Add("DEFAULT").ForeColor = Color.FromArgb(255, 25, 42, 86);
+
+                    ditem.ForeColor = Color.FromArgb(255, 25, 42, 86);
+                }
+                if (entry != null)
+                    rawMessage.Text = entry.Content;
+                else rawMessage.Text = message.ToString();
+
+            }
+        }
         private void messagesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = messagesList.SelectedItems.Count > 0 ? messagesList.SelectedItems[0] : null;
@@ -563,57 +624,31 @@ namespace VisualStudio2012Style
             {
                 var entry = item.Tag as Entry;
                 var message = entry?.Message ?? entry?.Error.ParsedMessage;
-                if (message != null)
-                {
-                    messageDetailsList.Items.Clear();
-               
-                    foreach (var h in message.Header)
-                    {
-                        var ddf = _fieldsBoxItems.ContainsKey(h.Key) ? (_fieldsBoxItems[h.Key].Tag as DDField) : null;
-                        var ditem = messageDetailsList.Items.Add(h.Key.ToString());
-                        if (ddf != null)
-                            ditem.SubItems.Add(ddf.Name).ForeColor = Color.FromArgb(255, 22, 160, 133);
-                        else ditem.SubItems.Add(h.Key.ToString()).ForeColor = Color.FromArgb(255, 22, 160, 133);
-                        ditem.SubItems.Add(h.Value.ToString()).ForeColor = Color.FromArgb(255, 22, 160, 133);
-                        if (ddf != null)
-                            ditem.SubItems.Add(ddf.FixFldType).ForeColor = Color.FromArgb(255, 22, 160, 133);
-                        else ditem.SubItems.Add("DEFAULT").ForeColor = Color.FromArgb(255, 22, 160, 133);
+              DisplayMessageInfo(message,entry);
+            }
+        }
 
-                        ditem.ForeColor = Color.FromArgb(255, 22, 160, 133);
-                    }
-                    foreach (var h in message)
-                    {
-                        var ddf = _fieldsBoxItems.ContainsKey(h.Key) ? (_fieldsBoxItems[h.Key].Tag as DDField) : null;
-                        var ditem = messageDetailsList.Items.Add(h.Key.ToString());
-                        if(ddf != null)
-                            ditem.SubItems.Add(ddf.Name).ForeColor = Color.FromArgb(255, 192, 57, 43);
-                        else ditem.SubItems.Add(h.Key.ToString()).ForeColor = Color.FromArgb(255, 192, 57, 43);
-                        ditem.SubItems.Add(h.Value.ToString()).ForeColor = Color.FromArgb(255, 192, 57, 43);
-                        if (ddf != null)
-                            ditem.SubItems.Add(ddf.FixFldType).ForeColor = Color.FromArgb(255, 192, 57, 43);
-                        else ditem.SubItems.Add("DEFAULT").ForeColor = Color.FromArgb(255, 192, 57, 43);
+        private void advTree1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (advTree1.SelectedNode != null && advTree1.SelectedNode != LogNode)
+            {
+                var b = advTree1.SelectedNode.Tag as Broker;
+                generalStats1.BrokerChanged(b);
+                scenario1.BrokerChanged(b);
+                generaltab.Visible = false;
+                StatsTab.Visible = true;
+                InsightsTab.Visible = true;
+                ScenarioTab.Visible = true;
+            }
+            else if (advTree1.SelectedNode != null && advTree1.SelectedNode == LogNode)
+            {
+                generaltab.Visible = true;
+                StatsTab.Visible = false;
+                InsightsTab.Visible = false;
+                ScenarioTab.Visible = false;
 
-                        ditem.ForeColor = Color.FromArgb(255,192, 57, 43);
-                  
-                    }
-                    foreach (var h in message.Trailer)
-                    {
-                        var ddf = _fieldsBoxItems.ContainsKey(h.Key) ? (_fieldsBoxItems[h.Key].Tag as DDField) : null;
-                        var ditem = messageDetailsList.Items.Add(h.Key.ToString());
-                        if (ddf != null)
-                            ditem.SubItems.Add(ddf.Name).ForeColor = Color.FromArgb(255, 25, 42, 86);
-                        else ditem.SubItems.Add(h.Key.ToString()).ForeColor = Color.FromArgb(255, 25, 42, 86);
-                        ditem.SubItems.Add(h.Value.ToString()).ForeColor = Color.FromArgb(255, 25, 42, 86);
-                        if (ddf != null)
-                            ditem.SubItems.Add(ddf.FixFldType).ForeColor = Color.FromArgb(255, 25, 42, 86);
-                        else ditem.SubItems.Add("DEFAULT").ForeColor = Color.FromArgb(255, 25, 42, 86);
-                      
-                        ditem.ForeColor = Color.FromArgb(255, 25, 42, 86);
-                    }
-                    rawMessage.Text = entry.Content;
-
-                }
             }
         }
     }
+    
 }

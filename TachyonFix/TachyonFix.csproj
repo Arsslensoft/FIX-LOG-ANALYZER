@@ -57,6 +57,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Charts, Version=14.0.0.3, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=11.1.0.10, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -65,6 +66,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Northwoods.Go">
+      <HintPath>..\..\..\..\Documents\GoDiagram Win 5.2.0.46\lib4.6\Northwoods.Go.dll</HintPath>
+    </Reference>
+    <Reference Include="Northwoods.Go.Pdf">
+      <HintPath>..\..\..\..\Documents\GoDiagram Win 5.2.0.46\lib4.6\Northwoods.Go.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="QuickFix, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -84,6 +91,13 @@
     <Compile Include="Controls\GeneralStats.Designer.cs">
       <DependentUpon>GeneralStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Scenario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Scenario.Designer.cs">
+      <DependentUpon>Scenario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SequenceDiagram.cs" />
     <Compile Include="Controls\StartPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +114,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\GeneralStats.resx">
       <DependentUpon>GeneralStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Scenario.resx">
+      <DependentUpon>Scenario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>

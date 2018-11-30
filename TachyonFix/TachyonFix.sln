@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachyonFix", "TachyonFix.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachyonFix.Core", "TachyonFix.Core\TachyonFix.Core.csproj", "{05A92046-8174-4129-A87F-7368A62A0692}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "..\Testing\Testing.csproj", "{51B1F79F-3CB5-4044-AF0C-9C00DC9ED985}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05A92046-8174-4129-A87F-7368A62A0692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05A92046-8174-4129-A87F-7368A62A0692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05A92046-8174-4129-A87F-7368A62A0692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B1F79F-3CB5-4044-AF0C-9C00DC9ED985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B1F79F-3CB5-4044-AF0C-9C00DC9ED985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B1F79F-3CB5-4044-AF0C-9C00DC9ED985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B1F79F-3CB5-4044-AF0C-9C00DC9ED985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
