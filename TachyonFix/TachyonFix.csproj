@@ -91,6 +91,18 @@
     <Compile Include="Controls\GeneralStats.Designer.cs">
       <DependentUpon>GeneralStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Insights.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Insights.Designer.cs">
+      <DependentUpon>Insights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InsightTip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InsightTip.Designer.cs">
+      <DependentUpon>InsightTip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Scenario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +126,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\GeneralStats.resx">
       <DependentUpon>GeneralStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Insights.resx">
+      <DependentUpon>Insights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InsightTip.resx">
+      <DependentUpon>InsightTip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Scenario.resx">
       <DependentUpon>Scenario.cs</DependentUpon>

@@ -12,7 +12,7 @@ namespace TachyonFix.Core.Insights
         public static InsightsDatabase InsightsDatabase { get; set; }
         public Solution Solution { get; set; }
         public Broker Broker { get; set; }
-        public List<string> Insights { get; set; }
+        public List<Insight> Insights { get; set; }
 
         public InsightCalculator(Solution s, Broker b)
         {
@@ -26,7 +26,7 @@ namespace TachyonFix.Core.Insights
         {
             if (Insights != null && Insights.Count > 0)
                 return;
-            Insights = new List<string>();
+            Insights = new List<Insight>();
             // get all rejects
             var allIncomingMessages = Solution.Linker.Events.Where(x => x.Target == Broker).Select(x => x.Message);
             foreach (var m in allIncomingMessages)
@@ -35,7 +35,7 @@ namespace TachyonFix.Core.Insights
                 {
                     var insights = InsightsDatabase.Insights.FirstOrDefault(x => x.MessageTag == m.Header.GetString(35));
                     if(insights.Cases.Any(x => m.IsSetField(x.ErrorFieldTag) && m.GetString(x.ErrorFieldTag) == x.ErrorFieldValue))
-                        Insights.Add(insights.Cases.FirstOrDefault(x => m.IsSetField(x.ErrorFieldTag) && m.GetString(x.ErrorFieldTag) == x.ErrorFieldValue).Recommendation);
+                        Insights.Add(new Insight() { Recommendation = insights.Cases.FirstOrDefault(x => m.IsSetField(x.ErrorFieldTag) && m.GetString(x.ErrorFieldTag) == x.ErrorFieldValue).Recommendation, Problem = m.IsSetField(58) ? m.GetString(58) : "Problem" });
                 }
             }
             Insights = Insights.Distinct().ToList();

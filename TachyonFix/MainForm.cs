@@ -635,9 +635,11 @@ namespace VisualStudio2012Style
                 var b = advTree1.SelectedNode.Tag as Broker;
                 generalStats1.BrokerChanged(b);
                 scenario1.BrokerChanged(b);
+                insights1.BrokerChanged(b);
+
                 generaltab.Visible = false;
                 StatsTab.Visible = true;
-                InsightsTab.Visible = true;
+                InsightsTab.Visible = b.Insights.Insights.Count > 0;
                 ScenarioTab.Visible = true;
             }
             else if (advTree1.SelectedNode != null && advTree1.SelectedNode == LogNode)
